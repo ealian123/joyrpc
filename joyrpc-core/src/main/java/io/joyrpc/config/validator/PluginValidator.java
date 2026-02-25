@@ -44,6 +44,11 @@ public class PluginValidator implements ConstraintValidator<ValidatePlugin, Stri
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
+
+        if (value != null && value.equals("memory")) {
+            System.out.printf("memory");
+        }
+
         String message = null;
         //没有配置插件
         if (isEmpty(value)) {
