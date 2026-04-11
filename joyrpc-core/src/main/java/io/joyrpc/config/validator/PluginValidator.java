@@ -93,6 +93,7 @@ public class PluginValidator implements ConstraintValidator<ValidatePlugin, Stri
         this.plugin = plugin;
         try {
             Field field = plugin.definition().getField(plugin.name());
+            // field.get(null) 就是用来获取静态字段的值, Java 反射中获取静态字段值的标准写法
             extensionPoint = (ExtensionPoint<?, String>) field.get(null);
         } catch (NoSuchFieldException | IllegalAccessException e) {
         }
